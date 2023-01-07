@@ -17,6 +17,16 @@ class BerandaController extends Controller
         return view('beranda', compact('nama'));
     }
 
+    public function halamanSatu()
+    {
+        return view('Halaman.halamanSatu');
+    }
+
+    public function halamanDua()
+    {
+        return view('Halaman.halamanDua');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

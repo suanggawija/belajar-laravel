@@ -13,7 +13,7 @@
           <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 
@@ -43,16 +43,19 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              {{-- menyembunyikna halaman --}}
+              @if (auth()->user()->level=="admin")
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ route('halamanSatu') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                  <p>halaman 1</p>
                 </a>
               </li>
+              @endif
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('halamanDua') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <p>halaman 2</p>
                 </a>
               </li>
             </ul>

@@ -27,6 +27,11 @@ Route::get('/login', function () {
 Route::post('/postLogin', [LoginController::class, 'postLogin'])->name('postLogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'ceklevel:admin,user'])->group(function () {
     Route::get('/beranda', [BerandaController::class, 'index']);
+    Route::get('/halaman-dua', [BerandaController::class, 'halamanDua'])->name('halamanDua');
+});
+
+Route::middleware(['auth', 'ceklevel:admin'])->group(function () {
+    Route::get('/halaman-satu', [BerandaController::class, 'halamanSatu'])->name('halamanSatu');
 });
